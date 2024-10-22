@@ -1,15 +1,22 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
+
+type floatMap map[string]float64
+
+func (m floatMap) output() {
+	fmt.Println(m)
+}
 
 func main() {
 	// var productNames = [4]string{"A book"}
-	prices := [4]float64{1, 2, 3, 4}
+	courses := make(floatMap, 5)
 
-	const myNum int = 4
-	featuredPrices := prices[1:len(prices)]
-	highlitedPrices := featuredPrices[:1]
-	fmt.Println(len(highlitedPrices), cap(highlitedPrices))
+	courses["go"] = 4.7
+	courses["react"] = 7.4
+	courses["angular"] = 20.1
+	// courses.output()
+	for key, value := range courses {
+		fmt.Println(key, value)
+	}
 }
