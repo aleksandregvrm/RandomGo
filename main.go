@@ -1,28 +1,21 @@
 package main
 
-<<<<<<< HEAD
-func main() {
-	userNames := make([]string, 2, 5)
+import (
+	"fmt"
+	"strings"
+)
 
-=======
-import "fmt"
-
-type floatMap map[string]float64
-
-func (m floatMap) output() {
-	fmt.Println(m)
+// Variadic function to join strings
+func joinStr(elements ...string) string {
+	return strings.Join(elements, "-")
 }
 
 func main() {
-	// var productNames = [4]string{"A book"}
-	courses := make(floatMap, 5)
 
-	courses["go"] = 4.7
-	courses["react"] = 7.4
-	courses["angular"] = 20.1
-	// courses.output()
-	for key, value := range courses {
-		fmt.Println(key, value)
-	}
->>>>>>> origin/homeGo
+	fmt.Println(joinStr())
+
+	fmt.Println(joinStr("GEEK", "GFG"))
+	fmt.Println(joinStr("Geeks", "for", "Geeks"))
+	fmt.Println(joinStr("G", "E", "E", "k", "S"))
+
 }
