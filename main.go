@@ -2,20 +2,24 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
-// Variadic function to join strings
-func joinStr(elements ...string) string {
-	return strings.Join(elements, "-")
-}
-
 func main() {
+	prices := []float64{10, 20, 30}
+	taxRates := []float64{0, 0.07, 0.1, 0.15}
 
-	fmt.Println(joinStr())
+	result := make(map[float64][]float64)
 
-	fmt.Println(joinStr("GEEK", "GFG"))
-	fmt.Println(joinStr("Geeks", "for", "Geeks"))
-	fmt.Println(joinStr("G", "E", "E", "k", "S"))
+	for _, taxRate := range taxRates {
+		taxIncludedPrices := make([]float64, len(prices))
+		for priceIndex, price := range prices {
+			taxIncludedPrices[priceIndex] = price * (1 - taxRate)
+		}
+		result[taxRate] = taxIncludedPrices
+	}
+	fmt.Println(result)
 
+	// Call NewTaxIncludedPriceJob from the price-calculator package
+	myStruct := prices.NewTaxIncludedPriceJob(0.15)
+	myStruct.OutputWholeStruct()
 }
